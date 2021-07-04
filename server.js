@@ -127,20 +127,20 @@ app.get('/api/parties', (req, res) => {
     });
   });
 
-  app.get('/api/party/:id', (req, res) => {
-    const sql = `SELECT * FROM parties WHERE id = ?`;
-    const params = [req.params.id];
-    db.query(sql, params, (err, row) => {
-      if (err) {
-        res.status(400).json({ error: err.message });
-        return;
-      }
-      res.json({
-        message: 'success',
-        data: row
-      });
+app.get('/api/party/:id', (req, res) => {
+  const sql = `SELECT * FROM parties WHERE id = ?`;
+  const params = [req.params.id];
+  db.query(sql, params, (err, row) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: 'success',
+      data: row
     });
   });
+});
 
   // Update a candidate's party
 app.put('/api/candidate/:id', (req, res) => {
