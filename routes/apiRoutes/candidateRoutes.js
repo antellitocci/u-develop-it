@@ -13,7 +13,7 @@ router.get('/candidates', (req, res) => {
 
     db.query(sql, (err, rows) => {
         if(err){
-            res.status(500).json({ erro: err.message });
+            res.status(500).json({ error: err.message });
             return;
         }
         res.json({
